@@ -1,16 +1,16 @@
 {
-  "name": "ACAP Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "runArgs": ["--privileged"],
+  "name": "ACAP Docker Dev",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": ["ms-azuretools.vscode-docker"]
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest"
     }
   },
-  "mounts": ["source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"]
+  "postCreateCommand": "docker --version",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
 }
